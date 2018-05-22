@@ -16,7 +16,7 @@
 		<servlet-class>dev.sgp.web.EditerCollaborateursController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>EditerCollaborateurController</servlet-name>
+		<servlet-name>EditerCollaborateursController</servlet-name>
 		<url-pattern>/collaborateurs/editer</url-pattern>
 	</servlet-mapping>
 </web-app>
