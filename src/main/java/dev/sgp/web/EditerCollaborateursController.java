@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class EditerCollaborateursController extends HttpServlet {
 	
 	@Override
@@ -17,29 +19,29 @@ public class EditerCollaborateursController extends HttpServlet {
 		String nom = req.getParameter("nom");
 		String prenom = req.getParameter("prenom");
 		
-		if(matricule == null || titre == null || nom == null || prenom == null)
+		if(StringUtils.isAnyEmpty(matricule, titre, nom, prenom))
 		{
 			resp.setStatus(400);
 			
 			resp.getWriter().write("<h1>Code=" + resp.getStatus() + "</h1>");
 			resp.getWriter().write("Les paramètres suivants sont incorects:");
 			
-			if(matricule == null)
+			if(StringUtils.isEmpty(matricule))
 			{
 				resp.getWriter().write(" matricule");
 			}
 			
-			if(titre == null)
+			if(StringUtils.isEmpty(titre))
 			{
 				resp.getWriter().write(" titre");
 			}
 			
-			if(nom == null)
+			if(StringUtils.isEmpty(nom))
 			{
 				resp.getWriter().write(" nom");
 			}
 			
-			if(prenom == null)
+			if(StringUtils.isEmpty(prenom))
 			{
 				resp.getWriter().write(" prenom");
 			}
