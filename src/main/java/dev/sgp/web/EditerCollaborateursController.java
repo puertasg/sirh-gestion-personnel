@@ -19,34 +19,34 @@ public class EditerCollaborateursController extends HttpServlet {
 		String nom = req.getParameter("nom");
 		String prenom = req.getParameter("prenom");
 		
-		resp.setContentType("text/html;charset=UTF-8");
+		resp.setCharacterEncoding("UTF-8");
 		
 		if(StringUtils.isAnyEmpty(matricule, titre, nom, prenom))
 		{
-			resp.setStatus(400);
 			
-			resp.getWriter().write("<h1>Code=" + resp.getStatus() + "</h1>");
-			resp.getWriter().write("Les paramètres suivants sont incorects:");
+			String paramsIncorrects = "";
 			
 			if(StringUtils.isEmpty(matricule))
 			{
-				resp.getWriter().write(" matricule");
+				paramsIncorrects += " matricule";
 			}
 			
 			if(StringUtils.isEmpty(titre))
 			{
-				resp.getWriter().write(" titre");
+				paramsIncorrects += " titre";
 			}
 			
 			if(StringUtils.isEmpty(nom))
 			{
-				resp.getWriter().write(" nom");
+				paramsIncorrects += " nom";
 			}
 			
 			if(StringUtils.isEmpty(prenom))
 			{
-				resp.getWriter().write(" prenom");
+				paramsIncorrects += " prenom";
 			}
+			
+			resp.sendError(400, "Les paramètres suivants sont incorects:" + paramsIncorrects);
 		}
 		else
 		{
