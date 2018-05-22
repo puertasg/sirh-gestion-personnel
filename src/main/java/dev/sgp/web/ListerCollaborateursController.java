@@ -11,7 +11,7 @@ public class ListerCollaborateursController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
-		req.getRequestDispatcher("/views/collab/listerCollaborateurs.jsp")
+		req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp")
 		.forward(req, resp);
 	}
 }
