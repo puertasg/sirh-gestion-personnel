@@ -12,6 +12,25 @@ import org.apache.commons.lang3.StringUtils;
 public class EditerCollaborateursController extends HttpServlet {
 	
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+	{
+		String matricule = req.getParameter("matricule");
+		
+		resp.setContentType("text/html;charset=UTF-8");
+		
+		if(StringUtils.isEmpty(matricule))
+		{
+			resp.sendError(400, "Un matricule est attendu");
+		}
+		else
+		{
+			resp.setStatus(200);
+			resp.getWriter().write("<h1>Code=" + resp.getStatus() + "</h1>");
+			resp.getWriter().write("matricule=" + matricule);
+		}
+	}
+	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
 		String matricule = req.getParameter("matricule");
@@ -19,7 +38,7 @@ public class EditerCollaborateursController extends HttpServlet {
 		String nom = req.getParameter("nom");
 		String prenom = req.getParameter("prenom");
 		
-		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
 		
 		if(StringUtils.isAnyEmpty(matricule, titre, nom, prenom))
 		{
