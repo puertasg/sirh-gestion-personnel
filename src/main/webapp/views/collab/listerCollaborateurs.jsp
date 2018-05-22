@@ -7,5 +7,6 @@
 </head>
 <body>
 	<h1>Les collaborateurs</h1>
+	bonjour
 </body>
 </html>
