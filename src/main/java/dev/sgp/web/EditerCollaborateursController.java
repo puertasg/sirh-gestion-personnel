@@ -20,6 +20,7 @@ public class EditerCollaborateursController extends HttpServlet {
 		if(matricule == null || titre == null || nom == null || prenom == null)
 		{
 			resp.setStatus(400);
+			
 			resp.getWriter().write("<h1>Code=" + resp.getStatus() + "</h1>");
 			resp.getWriter().write("Les paramètres suivants sont incorects:");
 			
@@ -45,6 +46,8 @@ public class EditerCollaborateursController extends HttpServlet {
 		}
 		else
 		{
+			resp.setStatus(201);
+			
 			resp.getWriter().write("<h1>Code=" + resp.getStatus() + "</h1>");
 			resp.getWriter().write("Création d'un collaborateur avec les informations suivantes : ");
 			resp.getWriter().write("Matricule : " + matricule + ",");
