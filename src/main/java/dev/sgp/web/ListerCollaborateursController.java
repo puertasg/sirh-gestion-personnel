@@ -11,6 +11,6 @@ public class ListerCollaborateursController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
-		resp.getWriter().write("Hello ListerCollaborateursController");
+		resp.getWriter().write("Bonjour ListerCollaborateursController");
 	}
 }
