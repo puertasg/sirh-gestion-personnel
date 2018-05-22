@@ -19,6 +19,8 @@ public class EditerCollaborateursController extends HttpServlet {
 		String nom = req.getParameter("nom");
 		String prenom = req.getParameter("prenom");
 		
+		resp.setContentType("text/html;charset=UTF-8");
+		
 		if(StringUtils.isAnyEmpty(matricule, titre, nom, prenom))
 		{
 			resp.setStatus(400);
