@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/bootstrap-4.1.1-dist/css/bootstrap.css">
+	href="<c:out value="${pageContext.servletContext.contextPath}" />/bootstrap-4.1.1-dist/css/bootstrap.css">
 </head>
 <body>
 	<div class="container-fluid">
 		<h4>SGP - App</h4>
-		<!-- <h1><%=response.getStatus()%></h1> -->
 	</div>
 
 	<div class="container">
@@ -19,7 +20,7 @@
 			<div class="form-group row">
 				<label for="inputNom" class="col-form-label col-4">Nom</label>
 				<div class="col-8 pr-0">
-					<input type="text" id="inputNom" name="nom" class="form-control <%=request.getAttribute("nom")%>" required>
+					<input type="text" id="inputNom" name="nom" class="form-control <c:out value="${nom}"/>" required>
 					<div class="invalid-feedback">Le nom est obligatoire.</div>
 				</div>
 			</div>
@@ -27,7 +28,7 @@
 			<div class="form-group row">
 				<label for="inputPrenom" class="col-form-label col-4">Prénom</label>
 				<div class="col-8 pr-0">
-					<input type="text" id="inputPrenom" name="prenom" class="form-control <%=request.getAttribute("prenom")%>" required>
+					<input type="text" id="inputPrenom" name="prenom" class="form-control <c:out value="${prenom}"/>" required>
 					<div class="invalid-feedback">Le prénom est obligatoire.</div>
 				</div>
 			</div>
@@ -36,7 +37,7 @@
 				<label for="inputDate" class="col-form-label col-4">Date de
 					naissance</label>
 				<div class="col-8 pr-0">
-					<input type="text" id="inputDate" name="dateNaissance" class="form-control <%=request.getAttribute("dateNaissance")%>" required>
+					<input type="text" id="inputDate" name="dateNaissance" class="form-control <c:out value="${dateNaissance}"/>" required>
 					<div class="invalid-feedback">La date de naissance est
 						obligatoire.</div>
 				</div>
@@ -45,7 +46,7 @@
 			<div class="form-group row">
 				<label for="textAdresse" class="col-form-label col-4">Adresse</label>
 				<div class="col-8 pr-0">
-					<textarea type="text" id="textAdresse" name="adresse" class="form-control <%=request.getAttribute("adresse")%>"
+					<textarea type="text" id="textAdresse" name="adresse" class="form-control <c:out value="${adresse}"/>"
 						required></textarea>
 					<div class="invalid-feedback">L'adresse est obligatoire.</div>
 				</div>
@@ -55,7 +56,7 @@
 				<label for="inputNoSecu" class="col-form-label col-4">Numéro
 					de sécurité sociale</label>
 				<div class="col-8 pr-0">
-					<input type="text" id="inputNoSecu" name="noSecu" class="form-control <%=request.getAttribute("noSecu")%>" required>
+					<input type="text" id="inputNoSecu" name="noSecu" class="form-control <c:out value="${noSecu}"/>" required>
 					<div class="invalid-feedback">Le numéro de sécurité sociale
 						est obligatoire.</div>
 				</div>
@@ -116,9 +117,9 @@
 		</form>
 
 		<script
-			src="<%=request.getContextPath()%>/bootstrap-4.1.1-dist/js/jquery-3.3.1.min.js"></script>
+			src="<c:out value="${pageContext.servletContext.contextPath}" />/bootstrap-4.1.1-dist/js/jquery-3.3.1.min.js"></script>
 		<script
-			src="<%=request.getContextPath()%>/bootstrap-4.1.1-dist/js/bootstrap.bundle.min.js"></script>
+			src="<c:out value="${pageContext.servletContext.contextPath}" />/bootstrap-4.1.1-dist/js/bootstrap.bundle.min.js"></script>
 
 		<script>
 			$(".invalid").each(function(){
