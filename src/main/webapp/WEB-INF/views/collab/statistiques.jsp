@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
 
-    <link rel="stylesheet" href="./css/style.css">
-
     <title>Statistiques</title>
 </head>
 
@@ -30,67 +28,23 @@
     <div class="container">
 
         <h1>Statistiques</h1>
-
+		
         <table class="table table-sm table-striped table-bordered">
             <thead>
                 <tr>
                     <th>Chemin</th>
-                    <th>Nombre de visites</th>
-                    <th>Min (ms)</th>
-                    <th>Max (ms)</th>
-                    <th>Moyenne (ms)</th>
+                    <th>ID visite</th>
+                    <th>Temps d'éxécution</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>/collaborateurs/editer</td>
-                    <td>500</td>
-                    <td>10</td>
-                    <td>1000</td>
-                    <td>500</td>
-                </tr>
-                <tr>
-                    <td>/collaborateurs/lister</td>
-                    <td>125</td>
-                    <td>5</td>
-                    <td>600</td>
-                    <td>90</td>
-                </tr>
-                <tr>
-                    <td>/collaborateurs/nouveau</td>
-                    <td>200</td>
-                    <td>2</td>
-                    <td>58</td>
-                    <td>789</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <c:forEach var="visite" items="${listeVisite}">
+                	<tr>
+                		<td>${visite.getChemin()}</td>
+                		<td>${visite.getId()}</td>
+                		<td>${visite.getTempsExecution()}</td>
+                	</tr>
+                </c:forEach>
             </tbody>
         </table>
     </div>
