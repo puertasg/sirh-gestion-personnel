@@ -8,11 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ListerCollaborateursController extends HttpServlet {
+import dev.sgp.util.Constantes;
+
+public class ListerCollaborateursController extends HttpServlet implements Constantes {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
-		req.setAttribute("listeNoms", Arrays.asList("Robert", "Jean", "Huges"));
+		req.setAttribute("listeCollabs", COLLAB_SERVICE.listerCollaborateurs());
 		req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp")
 		.forward(req, resp);
 	}
